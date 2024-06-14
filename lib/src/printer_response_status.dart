@@ -18,6 +18,9 @@ class PrinterResponseStatus {
   /// Whether printer has receipt paper
   final bool receiptPaperEmpty;
 
+  /// Whether receipt paper is near-end
+  final bool receiptPaperNearEmptyInner;
+
   /// Error response from printer
   final String? errorMessage;
 
@@ -41,6 +44,7 @@ class PrinterResponseStatus {
     required this.coverOpen,
     required this.cutterError,
     required this.receiptPaperEmpty,
+    required this.receiptPaperNearEmptyInner,
     this.errorMessage,
     required this.isSuccess,
     required this.overTemp,
@@ -55,6 +59,7 @@ class PrinterResponseStatus {
     bool? coverOpen,
     bool? cutterError,
     bool? receiptPaperEmpty,
+    bool? receiptPaperNearEmptyInner,
     String? errorMessage,
     bool? isSuccess,
     bool? overTemp,
@@ -67,6 +72,7 @@ class PrinterResponseStatus {
       coverOpen: coverOpen ?? this.coverOpen,
       cutterError: cutterError ?? this.cutterError,
       receiptPaperEmpty: receiptPaperEmpty ?? this.receiptPaperEmpty,
+      receiptPaperNearEmptyInner: receiptPaperNearEmptyInner ?? this.receiptPaperNearEmptyInner,
       errorMessage: errorMessage ?? this.errorMessage,
       isSuccess: isSuccess ?? this.isSuccess,
       overTemp: overTemp ?? this.overTemp,
@@ -83,6 +89,7 @@ class PrinterResponseStatus {
       'coverOpen': coverOpen,
       'cutterError': cutterError,
       'receiptPaperEmpty': receiptPaperEmpty,
+      'receiptPaperNearEmptyInner': receiptPaperNearEmptyInner,
       'error_message': errorMessage,
       'is_success': isSuccess,
       'overTemp': overTemp,
@@ -99,6 +106,7 @@ class PrinterResponseStatus {
       coverOpen: map['coverOpen'] ?? false,
       cutterError: map['cutterError'] ?? false,
       receiptPaperEmpty: map['receiptPaperEmpty'] ?? false,
+      receiptPaperNearEmptyInner: map['receiptPaperNearEmptyInner'] ?? false,
       errorMessage: map['error_message'],
       isSuccess: map['is_success'] ?? false,
       overTemp: map['overTemp'] ?? false,
@@ -112,12 +120,11 @@ class PrinterResponseStatus {
   String toJson() => json.encode(toMap());
 
   ///Create from JsonString [PrinterResponseStatus]
-  factory PrinterResponseStatus.fromJson(String source) =>
-      PrinterResponseStatus.fromMap(json.decode(source));
+  factory PrinterResponseStatus.fromJson(String source) => PrinterResponseStatus.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'PrinterResponseStatus(offline: $offline, coverOpen: $coverOpen, cutterError: $cutterError, receiptPaperEmpty: $receiptPaperEmpty, errorMessage: $errorMessage, isSuccess: $isSuccess, overTemp: $overTemp, infoMessage: $infoMessage, modelName: $modelName, firmwareVersion: $firmwareVersion)';
+    return 'PrinterResponseStatus(offline: $offline, coverOpen: $coverOpen, cutterError: $cutterError, receiptPaperEmpty: $receiptPaperEmpty, receiptPaperNearEmptyInner: $receiptPaperNearEmptyInner, errorMessage: $errorMessage, isSuccess: $isSuccess, overTemp: $overTemp, infoMessage: $infoMessage, modelName: $modelName, firmwareVersion: $firmwareVersion)';
   }
 
   @override
@@ -129,6 +136,7 @@ class PrinterResponseStatus {
         other.coverOpen == coverOpen &&
         other.cutterError == cutterError &&
         other.receiptPaperEmpty == receiptPaperEmpty &&
+        other.receiptPaperNearEmptyInner == receiptPaperNearEmptyInner &&
         other.errorMessage == errorMessage &&
         other.isSuccess == isSuccess &&
         other.overTemp == overTemp &&
@@ -143,6 +151,7 @@ class PrinterResponseStatus {
         coverOpen.hashCode ^
         cutterError.hashCode ^
         receiptPaperEmpty.hashCode ^
+        receiptPaperNearEmptyInner.hashCode ^
         errorMessage.hashCode ^
         isSuccess.hashCode ^
         overTemp.hashCode ^

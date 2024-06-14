@@ -157,6 +157,7 @@ public class FlutterStarPrntPlugin : FlutterPlugin, MethodCallHandler {
       json["overTemp"] = status.overTemp
       json["cutterError"] = status.cutterError
       json["receiptPaperEmpty"] = status.receiptPaperEmpty
+      json["receiptPaperNearEmptyInner"] = status.receiptPaperNearEmptyInner
       try {
         val firmwareInformationMap: Map<String, String> = port.firmwareInformation
         json["ModelName"] = firmwareInformationMap["ModelName"]
