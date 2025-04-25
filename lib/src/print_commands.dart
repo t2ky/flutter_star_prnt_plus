@@ -25,6 +25,10 @@ class PrintCommands {
     this._commands.add({"appendCutPaper": action.text});
   }
 
+  appendSound() {
+    this._commands.add({"appendSound": ""});
+  }
+
   /// open cash drawer, [actionNumber] needed to based on the printer port
   openCashDrawer(int actionNumber) {
     this._commands.add({"openCashDrawer": actionNumber});
