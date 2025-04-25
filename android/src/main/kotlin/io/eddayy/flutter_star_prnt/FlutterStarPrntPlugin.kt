@@ -382,6 +382,8 @@ public class FlutterStarPrntPlugin : FlutterPlugin, MethodCallHandler {
           builder.appendCutPaper(getCutPaperAction(it.get("appendCutPaper").toString()))
       else if (it.containsKey("openCashDrawer"))
           builder.appendPeripheral(getPeripheralChannel(it.get("openCashDrawer") as Int))
+      else if (it.containsKey("appendSound"))
+          builder.appendSound(SoundChannel.No1, 1)
       else if (it.containsKey("appendBlackMark"))
           builder.appendBlackMark(getBlackMarkType(it.get("appendBlackMark").toString()))
       else if (it.containsKey("appendBytes"))
